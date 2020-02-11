@@ -38,17 +38,18 @@ const createHeros= async(req, res)=>{
 
 const updateHeros= async(req, res)=>{
     try{
+        console.log(req)
         const{id}= req.params;
-        const [updated]= await SuperHero.update(req.body,{
+        const updated= await SuperHero.update(req.body,{
             where: {id:id}
         });
-    if(updated){
-        const updatedHero = await SuperHero.findOne({
-            where: {id:id}
-        })
-        return res.status(200).json({hero: updatedHero})
-    }
-    throw new Error('Hero not found, check your spelling & try again.')
+        if(updated){
+            const updatedHero = await SuperHero.findOne({
+                where: {id:id}
+            })
+            return res.status(200).json({hero: updatedHero})
+        }
+    // throw new Error('Hero not found, check your spelling & try again.')
     }catch(error){
         return res.status(500).send(error.message);
     }
