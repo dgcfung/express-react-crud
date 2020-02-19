@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const HeroForm = ({ hero, handleSubmit, handleChange, cancelPath }) => (
   <form onSubmit={handleSubmit}>
-    <label>Title</label>
+    <label>Hero</label>
     <input
       placeholder="hero"
       value={hero.hero}
@@ -11,7 +11,7 @@ const HeroForm = ({ hero, handleSubmit, handleChange, cancelPath }) => (
       onChange={handleChange}
     />
 
-    <label>Link</label>
+    <label>Sidekick</label>
     <input
       placeholder="sidekick"
       value={hero.side_kick}
